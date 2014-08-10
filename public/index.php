@@ -25,7 +25,7 @@
 		<div class="row">
 
 			<!-- the first one is always logo (or page name) -->
-			<div class="large-2 medium-4 small-6 columns end">
+			<div class="large-3 medium-6 small-12 columns end">
 				<div class="image page">
 					<span><?=($_REQUEST['id'] ? $_REQUEST['id'] : 'picha');?></span>
 					<form  enctype="multipart/form-data" action="upload.php<?=($_REQUEST['id']) ? '?chan=' . $_REQUEST['id'] : ''; ?>" method="post">
@@ -39,7 +39,7 @@
 
 			for ($i=0; $i < count($a); $i++) { 
 				?>
-				<div class="large-2 medium-4 small-6 columns end">
+				<div class="large-3 medium-6 small-12 columns end">
 					<div class="image">
 						<span><?php print_r($a[$i]); ?></span>
 					</div>
