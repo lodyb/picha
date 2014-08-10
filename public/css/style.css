@@ -23,6 +23,16 @@ html
 	border-radius:3px;
 }
 
+.image span{
+	display:inline;
+	position:absolute;
+	width:calc(100% - 4em);
+	height:10em;
+	overflow:hidden;
+	margin-top:calc(-100% + 60px);
+	font-size:12px;
+}
+
 .image.page{
 	background:#f05;
 }

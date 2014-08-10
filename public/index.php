@@ -13,10 +13,13 @@
 <body>
 
 	<?php 
-	print_r($_REQUEST);
+	$a = array();
+	$mysqli = mysqli_connect("127.0.0.1", "root", "yukkuri", "picha");
+	$q = mysqli_query($mysqli, "SELECT * FROM images");
+	while ($r = mysqli_fetch_assoc($q)) $a[] = $r;
+	// print("<pre>");
+	// print_r($a);exit;
 	?>
-
-
 	<div class="container">
 
 		<div class="row">
@@ -24,18 +27,17 @@
 			<!-- the first one is always logo (or page name) -->
 			<div class="large-2 medium-4 small-6 columns end">
 				<div class="image page">
-					<?=($_REQUEST['id'] ? $_REQUEST['id'] : 'picha');?>
+					<span><?=($_REQUEST['id'] ? $_REQUEST['id'] : 'picha');?></span>
 				</div>
 			</div>
 
 			<?php
 
-			$img = array( 'id' => "abcdefg" );
-
-			foreach ($img as $i) {
+			for ($i=0; $i < count($a); $i++) { 
 				?>
 				<div class="large-2 medium-4 small-6 columns end">
-					<div class="image" style="background:url('img/<?=$i?>')">
+					<div class="image">
+						<span><?php print_r($a[$i]); ?></span>
 					</div>
 				</div>
 				<?php
