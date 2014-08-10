@@ -8,8 +8,7 @@ CREATE TABLE IF NOT EXISTS `picha`.`comments` (
   `box_w` INT NULL,
   `box_h` INT NULL,
   `comment` VARCHAR(255) NOT NULL,
-  `date` DATETIME NOT NULL,
-  `channel` VARCHAR(32) NULL)
+  `date` DATETIME NOT NULL)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
@@ -19,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `picha`.`images` (
   `ip` VARCHAR(64) NOT NULL,
   `like` INT NULL DEFAULT 0,
   `dislike` INT NULL DEFAULT 0,
+  `channel` VARCHAR(32) NULL,
   `date` DATETIME NOT NULL,
   PRIMARY KEY (`image_id`))
 ENGINE = InnoDB

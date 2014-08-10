@@ -14,7 +14,7 @@
 
 	<?php 
 	$a = array();
-	$mysqli = mysqli_connect("127.0.0.1", "root", "yukkuri", "picha");
+	$mysqli = mysqli_connect("127.0.0.1", "root", "", "picha");
 	$q = mysqli_query($mysqli, "SELECT * FROM images");
 	while ($r = mysqli_fetch_assoc($q)) $a[] = $r;
 	// print("<pre>");
@@ -28,6 +28,10 @@
 			<div class="large-2 medium-4 small-6 columns end">
 				<div class="image page">
 					<span><?=($_REQUEST['id'] ? $_REQUEST['id'] : 'picha');?></span>
+					<form  enctype="multipart/form-data" action="upload.php<?=($_REQUEST['id']) ? '?chan=' . $_REQUEST['id'] : ''; ?>" method="post">
+						<input type="file" name="file_upload">
+						<input type="submit" value="ul">
+					</form>
 				</div>
 			</div>
 
