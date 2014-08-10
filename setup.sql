@@ -1,7 +1,9 @@
 
-CREATE DATABASE IF NOT EXISTS `picha`;
+CREATE DATABASE IF NOT EXISTS `picha`
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_unicode_ci;
 
-CREATE TABLE IF NOT EXISTS `picha`.`image_thread` (
+CREATE TABLE IF NOT EXISTS `picha`.`comments` (
   `image_id` VARCHAR(32) NOT NULL,
   `comment_x` INT NULL,
   `comment_y` INT NULL,
