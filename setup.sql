@@ -14,7 +14,7 @@ DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `picha`.`images` (
-  `image_id` VARCHAR(32) NOT NULL,
+  `image_id` VARCHAR(48) NOT NULL,
   `ip` VARCHAR(64) NOT NULL,
   `like` INT NULL DEFAULT 0,
   `dislike` INT NULL DEFAULT 0,
