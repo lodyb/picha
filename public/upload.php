@@ -1,6 +1,7 @@
 
 <?php
 
+	// make sure channels can only be ascii
 	function get_valid_channel($chan) {
 		if (!$chan) return null;
 		if (mb_check_encoding($chan, 'ASCII')) {
@@ -9,6 +10,7 @@
 		return null;
 	}
 
+	// upload and add to db
 	if (isset($_FILES['file_upload'])) {
 	
 		if (preg_match('/[.](jpg)|(gif)|(png)$/',
@@ -26,14 +28,13 @@
 					':like' => 0,
 					':dislike' => 0,
 					':date' => date("Y-m-d H:i:s"),
-					':channel' => get_valid_channel($_GET['id'])
+					':channel' => get_valid_channel($_REQUEST['chan'])
 				);
-				
-				$db = new PDO("mysql:host='localhost'; dbname='picha';", 'root', '');
+				$db = new PDO("mysql:host=localhost; dbname=picha;", 'root', '');
 				$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$s = $db->prepare("insert into images (image_id, ip, like, dislike, channel, date) values (:image_id, :ip, :like, :dislike, :channel, :date);");
+				$s = $db->prepare("insert into images (`image_id`, `ip`, `like`, `dislike`, `channel`, `date`) values (:image_id, :ip, :like, :dislike, :channel, :date);");
 				$s->execute($new_image);
-				'echo added new image :3';
+				echo 'added new image :3';
 			}
 			else {
 				echo 'upload failed sorriiii';

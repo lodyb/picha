@@ -71,10 +71,15 @@
 			<div class="large-3 medium-4 small-6 columns end">
 				<div class="image page">
 					<span><?=($_REQUEST['id'] ? $_REQUEST['id'] : 'picha');?></span>
-<!-- 					<form  enctype="multipart/form-data" action="upload.php<?=($_REQUEST['id']) ? '?chan=' . $_REQUEST['id'] : ''; ?>" method="post">
+					<!-- file upload form comment out if needed mew -->
+					<?php
+						$chan = (isset($_REQUEST['id'])) ? '?chan=' . $_REQUEST['id'] : '';
+						echo "<form  enctype=\"multipart/form-data\" action=\"upload.php" . $chan . "\" method=\"post\">";
+					?>
 						<input type="file" name="file_upload">
 						<input type="submit" value="ul">
-					</form> -->
+					</form>
+					<!-- end file upload form -->
 				</div>
 			</div>
 
